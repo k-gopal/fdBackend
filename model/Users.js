@@ -11,6 +11,10 @@ const schema = new mongoose.Schema({
         required: true,
         unique: true
     },
+    profession: {
+        type: String,
+        required: true
+    },
     password: {
         type: String,
         required: true

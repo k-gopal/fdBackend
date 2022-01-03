@@ -7,7 +7,7 @@ import {
 } from "../utils/common.js";
 import connect from "../database/database.js";
 import signUpSchema from "../schema/SignUpSchema.js";
-import { createUser, findUserByEmail } from "../services/authServices.js";
+import { createUser, findUserByEmailAndProfession } from "../services/authServices.js";
 import signInSchema from "../schema/SignInSchema.js";
 
 //db connection
@@ -40,6 +40,7 @@ const signUp = async (req, res, next) => {
       let result = await createUser({
         name: body.name,
         email: body.email,
+        profession: body.profession,
         password: (await hashedPass).toString(),
       });
       console.log("result", result);
@@ -104,7 +105,7 @@ const signIn = async (req, res, next) => {
         );
     }
 
-    let result = await findUserByEmail(body.email);
+    let result = await findUserByEmailAndProfession(body.email, body.profession);
     if (result.length) {
       console.log("result", result);
       let passResult = comparePasswords(body.password, result[0].password);

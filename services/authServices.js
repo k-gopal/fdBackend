@@ -13,9 +13,9 @@ const createUser = async(data) => {
     }
 };
 
-const findUserByEmail = async(email) => {
+const findUserByEmailAndProfession = async(email, profession) => {
     try {
-        let result = Users.find({email});
+        let result = Users.find({email, profession});
 
         if(result) return result;
         return false;
@@ -28,5 +28,5 @@ const findUserByEmail = async(email) => {
 
 export {
     createUser,
-    findUserByEmail
+    findUserByEmailAndProfession
 }
