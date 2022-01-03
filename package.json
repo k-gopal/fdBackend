@@ -1,0 +1,32 @@
+{
+  "name": "fd-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "type": "module",
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/k-gopal/fdBackend.git"
+  },
+  "author": "Gopal Khichar",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/k-gopal/fdBackend/issues"
+  },
+  "homepage": "https://github.com/k-gopal/fdBackend#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.2",
+    "joi": "^17.5.0",
+    "jsonwebtoken": "^8.5.1",
+    "moment": "^2.29.1",
+    "mongoose": "^6.1.3",
+    "nodemon": "^2.0.15"
+  }
+}
