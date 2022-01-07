@@ -9,6 +9,7 @@ const app = express();
 
 // importing routes
 import authRoute from './routes/authentication.js';
+import bidsRoute from './routes/bids.js';
 
 // getting data in JSON format
 app.use(express.urlencoded({ extended: false }));
@@ -28,6 +29,7 @@ app.use(cors(corsOption));
 
 // using routes
 app.use('/auth', authRoute);
+app.use('/bid', bidsRoute)
 
 
 // listening app on port

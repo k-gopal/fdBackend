@@ -3,7 +3,7 @@ import Users from "../model/Users.js";
 const createUser = async(data) => {
     try {
         const user = Users(data);
-        let result = user.save();
+        let result = await user.save();
 
         if (result) return result;
         return false;

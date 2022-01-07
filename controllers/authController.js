@@ -53,7 +53,7 @@ const signUp = async (req, res, next) => {
             sendResponseObject(
               "SUCCESS",
               HTTP_CODE.SUCCESS,
-              { email: body.email, token },
+              { email: body.email, token, name: body.name, profession: body.profession },
               "User is successfully registered."
             )
           );
@@ -107,7 +107,6 @@ const signIn = async (req, res, next) => {
 
     let result = await findUserByEmailAndProfession(body.email, body.profession);
     if (result.length) {
-      console.log("result", result);
       let passResult = comparePasswords(body.password, result[0].password);
       if (passResult) {
           let token = generateAccessToken(body.email);
@@ -117,7 +116,7 @@ const signIn = async (req, res, next) => {
             sendResponseObject(
               "SUCCESS",
               HTTP_CODE.SUCCESS,
-              { email: body.email, token },
+              { email: body.email, token, name: result[0].name, profession: result[0].profession },
               "User is successfully signed in."
             )
           );
